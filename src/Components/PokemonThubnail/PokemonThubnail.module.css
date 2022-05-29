@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+}
+
+
+.container {
+    height: 360px;
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -3px -3px 5px rgb(170,170,170); 
+    align-items: center;
+    border-radius: 20px;
+    margin: 20px 0px; 
+    position: relative;
+    top: 0px;
+    left: 0px;
+}
+
+.container:hover {
+    animation: onPokemonHover 200ms ease-out forwards;
+    cursor: pointer;
+}
+
+.id {
+    color: rgb(40,40,40);
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+
+.image {
+    flex-basis: 60%;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.typesContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 90%;
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 10px;
+}
+
+
+@keyframes onPokemonHover { 
+    0% {transform: scale(1);}
+    100% {transform: scale(1.05);}
+}
+
+@media only screen and (max-width: 800px) {
+    .container {
+        width: 60vw;
+    }
+}

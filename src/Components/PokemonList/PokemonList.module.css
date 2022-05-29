@@ -1,0 +1,15 @@
+.pokemonList {
+    height: 80%;
+    width: 70vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .pokemonList {
+        justify-content: center;
+    }
+}

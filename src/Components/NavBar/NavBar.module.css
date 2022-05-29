@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+.menuItem {
+    width: 95%;
+    height: 60px;
+    padding: 8px 0px 8px 16px;
+    font-size: 18px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menuItem:hover {
+    background-color: #1a83ff;
+}
+
+.menuItem a {
+    text-decoration: none;
+}
+
+.menuItemIcon {
+    font-size: 1.5rem;
+}
+
+.menuItemTitle {
+    margin-left: 10px;
+    color: white;
+}
+
+.navBar {
+    background-color: #060b26;
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navMenu {
+    background-color: #060b26;
+    width: 250px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0px;
+    left: -100%;
+    transition: 1s;
+    z-index: 5;
+}
+
+.navMenu.active {
+    left: 0px;
+    transition: 350ms;
+}
+
+.navMenuItems {
+    width: 100%;
+}
+
+span {
+    text-decoration: none;
+}
+
+.toggleButton {
+    font-size: 2rem;
+    margin-left: 2rem;
+}
+
+.toggleItem {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+

@@ -10,7 +10,7 @@ const endpoint = "https://pokeapi.co/api/v2/pokemon/";
 
 
 
-function PokemonThubnail({name, index, backgroundColor}) {
+function PokemonThubnail({name, index}) {
     const { setSelectedPokemonData, setTriadPokemon,
             pokemonDataById, favoritePokemons } = useContext(AppContext);
     const [pokemonData, setPokemonData] = useState({}); //the data of the pokemon
@@ -33,11 +33,11 @@ function PokemonThubnail({name, index, backgroundColor}) {
                     data.types.reverse();
                 }
             }
-            data.stats = response.data.stats
-            setPokemonData(data);
+            data.stats = response.data.stats;
+            setPokemonData(data);   
             setLoading(false);
         })
-    }, [])
+    }, [name])
 
     
     const handlePokemonClick = () => { // this function will be called each time pokemonThubmnail gets clicked
@@ -45,11 +45,12 @@ function PokemonThubnail({name, index, backgroundColor}) {
         //the Pokemon.js component will display the current pokemon, and provide information such us name and id of the previous
         //and next pokemon
         const triad = {
-            current: index,
-            previous: index === 1 ? pokemonDataById.length : index - 1,
-            next: index === pokemonDataById.length ? 1 : index + 1
+            current: pokemonData.id,
+            previous: pokemonData.id === 1 ? pokemonDataById.length : pokemonData.id - 1,
+            next: pokemonData.id === pokemonDataById.length ? 1 : pokemonData.id + 1
         }
         setTriadPokemon(triad);
+        console.log(pokemonData.id);
         navigate('/pokemon');
     }
 
@@ -57,14 +58,14 @@ function PokemonThubnail({name, index, backgroundColor}) {
     if (loading) return "Loading...";
 
     return (
-        <div className={PokemonCSS.container} onClick={handlePokemonClick} style={{backgroundColor: backgroundColor}}>
+        <div className={PokemonCSS.container} onClick={handlePokemonClick}>
             <p className={PokemonCSS.id}>#{pokemonData.id}</p>
             <img className={PokemonCSS.image} src={pokemonData.sprites.front_default} alt={pokemonData.name}/>
             <p className={PokemonCSS.name} style={isFavorite ? {color: "red"} : null}>{pokemonData.name[0].toUpperCase() + pokemonData.name.substr(1, pokemonData.name.length - 1)}</p>
             <div className={PokemonCSS.typesContainer}>
                 {
                     pokemonData.types.map((type, index) => {
-                        return <Type type={type} key={index}/>
+                        return <Type type={type} animated={false} key={index}/>
                     })
                 }
             </div>

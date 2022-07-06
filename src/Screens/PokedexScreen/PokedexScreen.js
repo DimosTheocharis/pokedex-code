@@ -4,14 +4,18 @@ import { AppContext } from '../../App';
 import PokedexScreenCSS from './PokedexScreen.module.css';
 import SearchBar from '../../Components/SearchBar/SearchBar';
 import PokemonList from '../../Components/PokemonList/PokemonList';
+import TypeSelector from '../../Components/TypeSelector/TypeSelector';
 
 function PokedexScreen() {
-    const { visiblePokemonData, handleLoadMore } = useContext(AppContext);
+    const { visiblePokemonData, handleLoadMore } = useContext(AppContext);    
 
     return (
         <div className={PokedexScreenCSS.container}>
             <h1 className={PokedexScreenCSS.title}>Pokedex</h1>
-            <SearchBar/>
+            <div className={PokedexScreenCSS.managementContainer}>
+                <SearchBar/>
+                <TypeSelector/>
+            </div>
             <PokemonList pokemons={visiblePokemonData}/> 
             <button className={PokedexScreenCSS.loadMore} onClick={handleLoadMore}>
               <p className={PokedexScreenCSS.loadMoreText}>Load More</p>

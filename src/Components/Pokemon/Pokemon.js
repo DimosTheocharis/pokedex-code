@@ -130,7 +130,6 @@ function Pokemon() {
         }
         setFavoritePokemons(newFavoritePokemons);
         setDragDropData(newData);
-        console.log(newFavoritePokemons);
         localStorage.setItem("dragDropData", JSON.stringify(newData)); //save the drag and drop data to the local storage
         localStorage.setItem("favoritePokemons", JSON.stringify(newFavoritePokemons)); //save the favorite pokemons to the local storage
     }
@@ -221,7 +220,7 @@ function Pokemon() {
                 <div className={PokemonCSS.pokemonTypesColumn}>
                 {
                     data.types.map((type, index) => {
-                        return <Type type={type} key={index}/>
+                        return <Type type={type} animated={false} key={index}/>
                     })
                 }
                 </div>
